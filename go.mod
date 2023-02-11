@@ -1,4 +1,4 @@
-module github.com/daichirata/gcsproxy
+module github.com/josue.bragagnolo/gcsproxy
 
 go 1.18
 

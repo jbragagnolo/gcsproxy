@@ -75,6 +75,8 @@ func (w *wrapResponseWriter) WriteHeader(status int) {
 func wrapper(fn func(w http.ResponseWriter, r *http.Request)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		proc := time.Now()
+		setStrHeader(w, "X-Served-From", "gcsproxy")
+
 		writer := &wrapResponseWriter{
 			ResponseWriter: w,
 			status:         http.StatusOK,
